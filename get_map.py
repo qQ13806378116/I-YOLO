@@ -8,10 +8,7 @@ import argparse
 import math
 
 import numpy as np
-#----------------------------------------------------#
-#   用于计算mAP
-#   代码克隆自https://github.com/Cartucho/mAP
-#----------------------------------------------------#
+
 MINOVERLAP = 0.5 # default value (defined in the PASCAL VOC2012 challenge)
 
 parser = argparse.ArgumentParser()
@@ -24,17 +21,7 @@ parser.add_argument('-i', '--ignore', nargs='+', type=str, help="ignore a list o
 parser.add_argument('--set-class-iou', nargs='+', type=str, help="set IoU for a specific class.")
 args = parser.parse_args()
 
-'''
-    0,0 ------> x (width)
-     |
-     |  (Left,Top)
-     |      *_________
-     |      |         |
-            |         |
-     y      |_________|
-  (height)            *
-                (Right,Bottom)
-'''
+
 
 # if there are no classes to ignore then replace None by empty list
 if args.ignore is None:
